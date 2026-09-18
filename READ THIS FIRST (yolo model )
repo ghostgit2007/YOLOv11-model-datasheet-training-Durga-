@@ -34,5 +34,18 @@ STEP 4 : NOW Install the Tools and Software to run and train the model
     * first install python latest vesrion py 3.11 by browser (pip --version)
     * next we can use git lfs for stroge system but do it later 
     * so you must create and manage the github account for project management
+    * so we need to install the pip tools (python -m pip install --upgrade pip setuptools wheel)
+    * (pip install numpy pandas opencv-python pillow matplotlib pyyaml tqdm)
+    * (pip install scipy scikit-learn)
+    * (pip install ultralytics)
+    * (pip install jupyter notebook)
+    * (python -c "import cv2, numpy, pandas, PIL, yaml, tqdm, scipy, sklearn, ultralytics; print('UGV V9-V10 environment OK')")
+    * that all all the installion is finished
+STEP 5 : make your cmd prompt to vitual environment
+
+    * For that run this cammd (python -m venv .venv)
+    * To activate run this cammad - (.\.venv\Scripts\Activate.ps1)
+    * DO THIS BEFORE ANY PYTHON PROGRAM FOR AVOIDING FOLDER CHRASH
+    * SO WE FINNISHED INSTALLTION WE MOVE TO TRAIN AND CLASSIFICATION
     
     
