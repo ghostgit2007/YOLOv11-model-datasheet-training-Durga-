@@ -1,0 +1,30 @@
+Hi Teammates this the yolo model training for custom all terrain - to make a own datasheet(project destination) -- Version 9 
+
+STEP 1 : To train the AI model first we have to download or make our data sheet 
+    liks for downlaoding the datasheet;
+     - https://rugd.vision/?utm_source=chatgpt.com
+     - https://universe.roboflow.com/xsianz/offroad-dataset-ii?utm_source=chatgpt.com
+     - https://roboflow.com/
+
+STEP 2 : Create a directory 
+ 
+        cd C:\
+        mkdir UGV_Project
+        cd UGV_Project
+        mkdir V9
+        cd V9
+        mkdir datasets
+        mkdir datasets\raw
+        mkdir datasets\processed
+        mkdir datasets\object_detection
+        mkdir datasets\terrain
+        mkdir scripts
+        mkdir models
+        mkdir results
+
+STEP 3 : Give the each datasheet to it place 
+    RUGD - C:\UGV_Project\V9\datasets\raw\RUGD
+    universi robo flow - C:\UGV_Project\V9\datasets\raw\Road_Obstacle
+    roboflow - C:\UGV_Project\V9\datasets\raw\Road_Obstacle
+    Off road datasheet 2 - C:\UGV_Project\V9\datasets\raw\Offroad
+    
