@@ -2,11 +2,11 @@ Hi Teammates this the yolo model training for custom all terrain - to make a own
 
 STEP 1 : To train the AI model first we have to download or make our data sheet 
     liks for downlaoding the datasheet;
-     - https://rugd.vision/?utm_source=chatgpt.com
-     - https://universe.roboflow.com/xsianz/offroad-dataset-ii?utm_source=chatgpt.com
-     - https://roboflow.com/
+     - [https://rugd.vision/]  or [http://rugd.vision/data/RUGD_frames-with-annotations.zip]
+     - [https://universe.roboflow.com/xsianz/offroad-dataset-] or  [https://universe.roboflow.com/mfq/road-obstacle-detection-6zwj5-dassk]
+     - [https://roboflow.com/] or [https://universe.roboflow.com/xsianz/offroad-dataset-ii]
 
-STEP 2 : Create a directory 
+STEP 2 : Create a directory , open cmd (cammand prompt) 
  
         cd C:\
         mkdir UGV_Project
@@ -22,9 +22,17 @@ STEP 2 : Create a directory
         mkdir models
         mkdir results
 
-STEP 3 : Give the each datasheet to it place 
+STEP 3 : Give the each datasheet to it place give its dir [PASTE THE DOWNLOADED DATASHEET IMG & VIDEO INTO ITS DIRECTORY]
+
     RUGD - C:\UGV_Project\V9\datasets\raw\RUGD
     universi robo flow - C:\UGV_Project\V9\datasets\raw\Road_Obstacle
     roboflow - C:\UGV_Project\V9\datasets\raw\Road_Obstacle
     Off road datasheet 2 - C:\UGV_Project\V9\datasets\raw\Offroad
+
+STEP 4 : NOW Install the Tools and Software to run and train the model
+
+    * first install python latest vesrion py 3.11 by browser (pip --version)
+    * next we can use git lfs for stroge system but do it later 
+    * so you must create and manage the github account for project management
+    
     
