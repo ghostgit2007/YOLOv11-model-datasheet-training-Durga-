@@ -1,0 +1,61 @@
+import cv2
+from ultralytics import YOLO
+
+# 1. Load the pre-trained YOLO model (using YOLOv8 nano for speed)
+# This will automatically download 'yolov8n.pt' on its first run
+model = YOLO("yolov8n.pt") 
+
+# 2. Initialize the webcam feed (0 is usually the default built-in camera)
+cap = cv2.VideoCapture(0)
+
+if not cap.isOpened():
+    print("Error: Could not open webcam.")
+    exit()
+
+print("Press 'q' to quit the application.")
+
+while True:
+    # Capture frame-by-frame from the camera feed
+    ret, frame = cap.read()
+    if not ret:
+        print("Failed to grab frame.")
+        break
+
+    # 3. Feed the frame directly into YOLO to get predictions
+    # We set stream=True for optimized performance on live video
+    results = model(frame, stream=True)
+
+    # 4. Extract data and use OpenCV to annotate the frame manually
+    for result in results:
+        boxes = result.boxes
+        for box in boxes:
+            # Get coordinates for the bounding box rectangle
+            x1, y1, x2, y2 = map(int, box.xyxy[0])
+            
+            # Extract confidence score and class index
+            confidence = float(box.conf[0])
+            class_id = int(box.cls[0])
+            class_name = model.names[class_id] # Look up the name (e.g., "person")
+
+            # Filter out weak detections (only show objects above 50% certainty)
+            if confidence > 0.5:
+                # Draw the bounding box rectangle using OpenCV (Green border, thickness=2)
+                cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+                
+                # Format label text string
+                label = f"{class_name} {confidence:.2f}"
+                
+                # Put the label text directly above the drawn bounding box rectangle
+                cv2.putText(frame, label, (x1, max(y1 - 10, 20)), 
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
+
+    # 5. Display the final annotated frame in a pop-up window
+    cv2.imshow("YOLO Real-Time Object Detection", frame)
+
+    # Break the continuous loop instantly if the user presses the 'q' key
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# Clean up window frames and close camera hardware references safely
+cap.release()
+cv2.destroyAllWindows()
