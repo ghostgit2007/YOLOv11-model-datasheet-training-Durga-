@@ -27,6 +27,44 @@ Convert polygon annotations to bounding boxes
 Preserve empty/background labels
 Create processed dataset
 
+
+
+
+
+
+
+
+
+
+
+UGV_Project/
+│
+├── V9/
+│   ├── scripts/
+│   │   ├── inspect_datasets.py
+│   │   ├── convert_road_obstacles.py
+│   │   ├── process_offroad_masks.py
+│   │   ├── validate_offroad_processed.py
+│   │   └── validate_v9_all_datasets.py
+│   │
+│   ├── results/
+│   │   └── offroad_class_mapping.csv
+│   │
+│   ├── datasets/
+│   │   ├── raw/
+│   │   ├── processed/
+│   │   ├── object_detection/
+│   │   └── terrain/
+│   │
+│   ├── models/
+│   ├── requirements.txt
+│   └── README.md
+│
+└── .gitignore
+
+
+
+
 Output:
 
 datasets\processed\Road_Obstacle\
