@@ -1,0 +1,122 @@
+V9 Scripts — Correct Execution Order
+
+This is the important part for your teammate.
+
+From:
+
+cd C:\UGV_Project\V9
+1. Dataset inspection
+python scripts\inspect_datasets.py
+
+Purpose:
+
+Count images
+Check dataset structure
+Check corrupt images
+Check RUGD frame/annotation matching
+Generate:
+results\v9_dataset_report.txt
+2. Road Obstacle processing
+python scripts\convert_road_obstacles.py
+
+Purpose:
+
+Read original YOLO26 dataset
+Preserve normal bounding boxes
+Convert polygon annotations to bounding boxes
+Preserve empty/background labels
+Create processed dataset
+
+Output:
+
+datasets\processed\Road_Obstacle\
+
+Report:
+
+datasets\processed\Road_Obstacle\V9_conversion_report.txt
+
+Result:
+
+Images copied       : 5731
+Bounding boxes      : 6826
+Polygons converted  : 24
+Empty labels        : 2014
+Invalid annotations : 0
+3. Offroad mask processing
+python scripts\process_offroad_masks.py
+
+Purpose:
+
+Copy Offroad images
+Copy segmentation masks
+Normalize pixel value 1 → 0
+Validate mask values
+Preserve semantic-segmentation format
+
+Output:
+
+datasets\processed\Offroad\
+
+Report:
+
+datasets\processed\Offroad\V9_offroad_processing_report.txt
+
+Result:
+
+Images processed : 3462
+Masks processed   : 3462
+Pixels 1 → 0      : 12,360,573
+Invalid masks     : 0
+4. Offroad validation
+python scripts\validate_offroad_processed.py
+
+Checks:
+
+Image/mask matching
+Missing images
+Missing masks
+Mask dimensions
+Mask format
+Valid pixel values
+
+Result:
+
+Total images    : 3462
+Total masks     : 3462
+Missing masks   : 0
+Missing images  : 0
+Invalid masks   : 0
+Wrong dimensions: 0
+
+VALIDATION STATUS: PASS
+5. Final V9 master validation
+python scripts\validate_v9_all_datasets.py
+
+This is the final V9 checkpoint.
+
+It validates:
+
+RUGD
+Road Obstacle
+Offroad
+Class mapping
+Processing reports
+
+And confirms the complete V9 dataset foundation.
+
+Important: RUGD does NOT need a processing script
+
+RUGD was already structured as:
+
+datasets\raw\RUGD\
+├── frames\
+└── annotations\
+
+We verified:
+
+Frames      : 7436
+Annotations : 7436
+Missing     : 0
+Matching    : 7436
+
+So don't create an unnecessary RUGD conversion script.
