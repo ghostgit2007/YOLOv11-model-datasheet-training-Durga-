@@ -1,0 +1,18 @@
+UGV V9 — Complete Step Order
+
+Your V9 was the Dataset Foundation & Preparation stage.
+
+V9 workflow
+Order	Step	Purpose	Script
+V9.1	Create project structure	Create V9 folders/environment	—
+V9.2	Download datasets	Obtain RUGD, Road Obstacle, Offroad	—
+V9.3	Inspect datasets	Check images, annotations, structure, corruption   use this = 	(inspect_datasets.py)
+V9.4	Clean/organize datasets	Put datasets into the correct raw/processed structure	—
+V9.5	Class mapping	Understand source classes and prepare mappings	use this = (offroad_class_mapping.csv)
+V9.6	Process annotations	Convert Road Obstacle polygons → bounding boxes; normalize Offroad masks	use this = (convert_road_obstacles.py / process_offroad_masks.py)
+V9.7	Dataset split	Preserve train/valid/test organization	(Roboflow export / existing splits)
+V9.8	Dataset validation	Check images, labels, masks, dimensions, missing files	use this = (validate_offroad_processed.py + Road Obstacle validation)
+V9.9	Training-ready datasets	Produce processed datasets for future training	(datasets/processed/)
+V9.10	Master validation	Verify all V9 datasets together	(validate_v9_all_datasets.py)
+
+                            LETS MOVE TO CODE!!!
