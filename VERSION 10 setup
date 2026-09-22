@@ -1,0 +1,37 @@
+V10 script flow
+V10.1
+analyze_v10_datasets.py
+        ↓
+V10.2
+analyze_v10_class_balance.py
+        ↓
+V10.3
+analyze_v10_duplicates.py
+        ↓
+V10.4
+analyze_v10_image_quality.py
+        ↓
+V10.5
+analyze_v10_annotations.py
+        ↓
+V10.6
+analyze_v10_class_strategy.py
+        ↓
+V10.7
+inspect_bad_boxes.py
+        ↓
+clean_bad_boxes.py
+        ↓
+verify_v107_cleaned.py
+        ↓
+inspect_tiny_boxes.py
+        ↓
+V10.8
+prepare_v108_final.py
+        ↓
+prepare_v1082_terrain.py
+        ↓
+V10.9
+validate_v109_final.py
+        ↓
+V10 COMPLETE ✅
